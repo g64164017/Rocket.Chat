@@ -32,7 +32,9 @@ Ideal untuk penggunaan hingga 200 pengguna dengan 50 akses secara bersamaan. Akt
 Dapat mengakomodir penggunaan hingga 500 pengguna dengan 100 akses secara bersamaan. Aktivitas _upload_, _sharing_, dan _bot_ pada level wajar.
 
 ## Instalasi Cepat dengan Snaps (Disarankan)
+```bash
   sudo snap install rocketchat-server
+```
 
 Setelah instalasi selesai, aplikasi langsung aktif pada port 3000 http dan dapat di akses melalui _url_ [http://localhost:3000](http://localhost:3000)
 
@@ -71,7 +73,6 @@ export ADMIN_PASS=adminpassword
 export ADMIN_EMAIL=adminemail@example.com
 node main.js
 ```
-<!---->
 
 Jika proses _startup_ berhasil, cli menampilkan informasi seperti berikut:
 ```bash
@@ -115,8 +116,8 @@ sudo apt install nginx
 
 ```bash
 sudo mkdir /etc/nginx/ssl
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 
-     -keyout /etc/nginx/ssl/nginx.key
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+     -keyout /etc/nginx/ssl/nginx.key \
      -out /etc/nginx/ssl/nginx.crt
 ```
 
@@ -184,10 +185,11 @@ OAuth merupakan metode autentikasi meggunakan akun aplikasi lain. Rocket.Chat me
 Tombol login dengan akun OAuth akan muncul pada halaman login.
 
 ![Form Login OAuth - Rocket](images/oauth-login.png)
-
+<!--
 ## Layout
 
 https://localhost:4444/admin/Layout
+-->
 
 ## Livechat
 
@@ -219,7 +221,10 @@ Dengan konfigurasi ini, layanan RocketChat akan berjalan otomatis setiap kali _b
 ```bash
 sudo npm install -g forever forever-service
 cd ~/Rocket.Chat
-sudo forever-service install -s main.js -e "ROOT_URL=https://localhost/ MONGO_URL=mongodb://localhost:27017/rocketchat PORT=3000" rocketchat
+sudo forever-service install -s main.js -e  \
+  "ROOT_URL=https://localhost/ \
+  MONGO_URL=mongodb://localhost:27017/rocketchat PORT=3000" \
+  rocketchat
 sudo service rocketchat start
 ```
 
